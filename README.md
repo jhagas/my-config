@@ -21,7 +21,7 @@ sudo cp hai2 /usr/bin/hai2
 
 - ***Fish Config Install (you can edit everything later)***
 ```bash
-cp -r fish .config/
+cp -r fish ~/.config/
 ```
 
 - ***.vimrc Install***
@@ -31,8 +31,8 @@ cp .vimrc ../
 
 - ***Alacritty Config File Install***
 ```bash
-mkdir .config/alacritty
-cp alacritty.yml .config/alacritty/
+mkdir ~/.config/alacritty
+cp alacritty.yml ~/.config/alacritty/
 ```
 
 - ***Chromium Startpage Install***
@@ -42,5 +42,21 @@ cp alacritty.yml .config/alacritty/
 4. Find the startpage directory
 usually located in
 ```~/my-config/startpage/```
+
+- ***Spotify Theme Install***
+Make sure you already install Spicetify and have opened it before
+```bash
+cp -r Dribbliish ~/.config/spicetify/Themes/
+```
+Configuring:
+```bash
+cd "$(dirname "$(spicetify -c)")/Themes/Dribbblish"
+mkdir -p ../../Extensions
+cp dribbblish.js ../../Extensions/
+spicetify config extensions dribbblish.js
+spicetify config current_theme Dribbblish color_scheme nord-dark
+spicetify config inject_css 1 replace_colors 1 overwrite_assets 1
+spicetify apply
+```
 
 # Enjoy!!
