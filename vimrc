@@ -8,6 +8,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'preservim/nerdtree'
+Plug 'ap/vim-css-color'
 
 " End vim-plug call
 call plug#end()
@@ -32,7 +33,7 @@ set nocompatible
 set lazyredraw
 set showmatch
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'wombat',
       \ }
 
 
@@ -47,8 +48,8 @@ if !has('gui_running')
     set t_Co=256
 endif
 
+
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-set spell spelllang=id,en
 
 imap jk <Esc>
 vmap ii <Esc>
@@ -58,10 +59,10 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set noshowmode
 
-map <F3> :set mouse=a<CR>
-map <F4> :set mouse=c<CR>
+map <F3> :exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 map <F12> :Goyo<CR>
 nnoremap <F11> :NERDTreeToggle<CR>
+map <F4> :exec &spelllang!=""? "set spell spelllang=" : "set spell spelllang=id,en"<CR>
 
 let NERDTreeShowHidden=1
 
@@ -71,15 +72,5 @@ set undodir=~/.vim/undodir/
 set undofile
 let g:undotree_WindowLayout = 2
 
-
-" Markdown Edits
-    let g:vim_markdown_autowrite = 1
-    let g:vim_markdown_no_extensions_in_markdown = 1
-    let g:vim_markdown_conceal = 0
-    let g:vim_markdown_override_foldtext = 0
-    let g:vim_markdown_folding_disabled = 1
-
-
 " Color Scheme (imported from vim-plug)
 colorscheme nord
-
