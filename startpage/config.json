@@ -1,0 +1,121 @@
+{
+  "disable24Hour": false,
+  "disableDate": true,
+  "disableMessage": false,
+  "disableSearchBar": true,
+  "disableWeather": false,
+  "searchEngine": "DuckDuckGo",
+  "settingsIcon": false,
+  "squares": [
+    {
+      "color": "#bf616a",
+      "links": [
+        {
+          "name": "/e/",
+          "url": "https://ecloud.global/apps/rainloop/"
+        },
+        {
+          "name": "jhagashanawinaya",
+          "url": "https://mail.google.com/mail/u/0"
+        },
+        {
+          "name": "g-drive",
+          "url": "https://drive.google.com/drive/u/2/my-drive"
+        },
+        {
+          "name": "ms-365",
+          "url": "https://www.office.com/?auth=2&home=1"
+        },
+        {
+          "name": "desmos",
+          "url": "https://www.desmos.com/calculator?lang=id"
+        }
+      ],
+      "name": "fast access"
+    },
+    {
+      "color": "#ebcb8b",
+      "links": [
+        {
+          "name": "my-its",
+          "url": "https://my.its.ac.id/"
+        },
+        {
+          "name": "presensi-its",
+          "url": "https://presensi.its.ac.id/"
+        },
+        {
+          "name": "fisdas",
+          "url": "https://riset.its.ac.id/praktikum-fisdas/"
+        },
+        {
+          "name": "g-meet",
+          "url": "https://meet.google.com/landing?authuser=0"
+        },
+        {
+          "name": "g-class",
+          "url": "https://classroom.google.com/u/0/h"
+        }
+      ],
+      "name": "school"
+    },
+    {
+      "color": "#a3be8c",
+      "links": [
+        {
+          "name": "whatsapp",
+          "url": "https://web.whatsapp.com/"
+        },
+        {
+          "name": "mastodon",
+          "url": "https://qoto.org/web/timelines/home"
+        },
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/"
+        },
+        {
+          "name": "practice-python",
+          "url": "http://www.practicepython.org/"
+        },
+        {
+          "name": "r/unixporn",
+          "url": "https://www.reddit.com/r/unixporn/"
+        }
+      ],
+      "name": "need info?"
+    },
+    {
+      "color": "#b48ead",
+      "links": [
+        {
+          "name": "github",
+          "url": "https://github.com/jhagas"
+        },
+        {
+          "name": "lbry/odysee",
+          "url": "https://odysee.com/"
+        },
+        {
+          "name": "youtube",
+          "url": "https://youtube.com"
+        },
+        {
+          "name": "zoom",
+          "url": "https://zoom.us"
+        },
+        {
+          "name": "openstreetmap",
+          "url": "https://www.openstreetmap.org/"
+        }
+      ],
+      "name": "others"
+    }
+  ],
+  "timeZone": "America/Los_Angeles",
+  "user": "Jhagas",
+  "weatherConf": {
+    "location": "Baureno",
+    "unit": "cel"
+  }
+}
