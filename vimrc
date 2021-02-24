@@ -48,6 +48,7 @@ if !has('gui_running')
     set t_Co=256
 endif
 
+set termguicolors
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
