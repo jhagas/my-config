@@ -26,6 +26,7 @@ cp -r fish ~/.config/
 
 - ***.vimrc Install***
 ```bash
+mv vimrc .vimrc
 cp .vimrc ../
 ```
 
