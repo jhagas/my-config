@@ -1,5 +1,12 @@
-# my-config
-Nord Themed Config File for GTK, Alacritty, Fish, Vim, Spotify, and Chromium startpage
+<h1 align="center">my nord config</h1>
+
+<div align="center">
+Nord Themed Config File for GTK, Alacritty, Fish, Vim, Spotify, and Chromium startpage<br>
+  Inspired by this amazing color pattern https://nordtheme.com/<br>
+<img src="https://github.com/jhagas/my-config/raw/main/Screenshot/1.png" width="763">
+<img src="https://github.com/jhagas/my-config/raw/main/Screenshot/2.png" width="763">
+<img src="https://github.com/jhagas/my-config/raw/main/Screenshot/3.png" width="763">
+</div>
 
 ## Gnome/GTK/Kvantum Theme
 Nordic: https://github.com/EliverLara/Nordic
