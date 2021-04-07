@@ -1,10 +1,8 @@
 <h1 align="center">my nord config</h1>
 
 <div align="center">
-Nord Themed Config File for GTK, Alacritty, Fish, Vim, Spotify, and Chromium startpage<br>
+Nord Themed Config File for GTK, Alacritty, Zsh, nvim, Spotify, and Chromium startpage<br>
   Inspired by this amazing color pattern https://nordtheme.com/<br>
-<img src="https://github.com/jhagas/my-config/raw/main/Screenshot/1.png" width="763">
-<img src="https://github.com/jhagas/my-config/raw/main/Screenshot/2.png" width="763">
 <img src="https://github.com/jhagas/my-config/raw/main/Screenshot/3.png" width="763">
 </div>
 
@@ -23,25 +21,11 @@ cd my-config
 
 - ***Welcome Message Install***
 ```bash
-sudo cp hai2 /usr/bin/hai2
+sudo cp hai /usr/bin/hai2
 ```
 
-- ***Fish Config Install (you can edit everything later)***
-```bash
-cp -r fish ~/.config/
-```
+Everything should be in place as in this git repo.
 
-- ***.vimrc Install***
-```bash
-mv vimrc .vimrc
-cp .vimrc ../
-```
-
-- ***Alacritty Config File Install***
-```bash
-mkdir ~/.config/alacritty
-cp alacritty.yml ~/.config/alacritty/
-```
 
 - ***Chromium Startpage Install***
 1. Open Extensions menu on Chromium
