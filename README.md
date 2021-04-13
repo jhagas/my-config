@@ -1,7 +1,7 @@
 <h1 align="center">my nord config</h1>
 
 <div align="center">
-Nord Themed Config File for GTK, Alacritty, Zsh, nvim, Spotify, and Chromium startpage<br>
+Nord Themed Config File for i3-gaps, dunst, rofi, Alacritty, kitty, Zsh, neovim, Spotify, and many more<br>
   Inspired by this amazing color pattern https://nordtheme.com/<br>
 <img src="https://github.com/jhagas/my-config/raw/main/Screenshot/3.png" width="763">
 </div>
@@ -9,7 +9,7 @@ Nord Themed Config File for GTK, Alacritty, Zsh, nvim, Spotify, and Chromium sta
 ## Gnome/GTK/Kvantum Theme
 Nordic: https://github.com/EliverLara/Nordic
 
-## Icons Theme
+## GTK Icons Theme
 Papirus: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 
 ## Installation
