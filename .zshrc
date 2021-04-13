@@ -1,6 +1,5 @@
-# Command Not Found
-PAGER=bat
-source /etc/zsh_command_not_found
+EDITOR=nvim
+export PATH
 
 # NNN quit cd, ^G
 n() {
@@ -22,8 +21,8 @@ n() {
 # NNN plugin
 export NNN_TRASH=1
 export NNN_FIFO=/tmp/nnn.fifo
-export NNN_PLUG='d:dragdrop;p:preview-tui;g:_gsconnect $nnn'
-export NNN_BMS='t:~/.local/share/Trash;h:~/;p:~/Pictures;d:~/Downloads;D:~/Documents;w:~/Mount/Data/Wallpaper;v:~/Videos;k:~/Mount/Data/JHAGAS/KULIAH;f:/media/jhagas;m:~/Mount/Data/JHAGAS/KULIAH/Mata Kuliah/Semester 2;b:~/Mount/Data/JHAGAS/KULIAH/E-book/TEXTBOOK;n:~/Nextcloud/Notes'
+export NNN_PLUG='d:dragdrop;p:preview-tui;g:_ksend $nnn;w:_feh --bg-fill $nnn'
+export NNN_BMS='t:~/.local/share/Trash;h:~/;p:~/Pictures;d:~/Downloads;D:~/Documents;w:/run/media/jhagas/DATA/Wallpaper;v:~/Videos;k:/run/media/jhagas/DATA/JHAGAS/KULIAH;f:/run/media/jhagas;m:/run/media/jhagas/DATA/JHAGAS/KULIAH/Mata Kuliah/Semester 2;b:/run/media/jhagas/DATA/JHAGAS/KULIAH/E-book/TEXTBOOK;n:~/Nextcloud2/Notes'
 
 
 # Path to your oh-my-zsh installation.
@@ -51,6 +50,8 @@ compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 
+alias vim=nvim
+
 # OpenVPN Management
 alias startvpn='openvpn3 session-start --config client.ovpn'
 alias stopvpn='openvpn3 session-manage --disconnect --config client.ovpn'
@@ -72,8 +73,7 @@ lb="/home/jhagas/.local/bin"
 data="/home/jhagas/Mount/Data"
 
 # Opening Messages
-colorscript random
-hai2 Jhagas
+hai Jhagas
 
 # Starship Prompt
 eval "$(starship init zsh)"

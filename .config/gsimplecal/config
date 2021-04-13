@@ -1,0 +1,12 @@
+show_timezones = 1
+close_on_unfocus = 0
+clock_format =%A, %d %B %Y 
+mainwindow_decorated = 0
+mainwindow_keep_above = 1
+mainwindow_skip_taskbar = 0
+mainwindow_position = none
+mainwindow_xoffset = 1114
+mainwindow_yoffset = 35
+
+clock_label =   Bojonegoro   
+clock_tz = 
