@@ -1,0 +1,18 @@
+# Delete This Line /lib/systemd/system/thinkfan.service
+[Unit]
+Description=simple and lightweight fan control program
+Wants=lm_sensors.service
+After=lm_sensors.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/thinkfan $THINKFAN_ARGS
+PIDFile=/run/thinkfan.pid
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
+Also=thinkfan-sleep.service
+Also=thinkfan-wakeup.service
