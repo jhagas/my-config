@@ -16,8 +16,6 @@
 ######                          Define the $mod variable/key                             ######
 ###############################################################################################
 
-# Key to rule them all : Super(Windows) or Alt key?
-
 # Mod4 = Windows or Super key on keyboard
 # Mod1 = Alt key on keyboard
 
@@ -26,7 +24,6 @@
 
 #set Super key
 set $mod Mod4
-
 
 
 ###############################################################################################
@@ -46,7 +43,6 @@ set $right l
 
 
 # setting variables for later use
-# use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
 #exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
@@ -99,17 +95,36 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 #####                          3 menu's in arcolinux                                     ######
 ###############################################################################################
 
-# start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#2E3440' -nf '#D08770' -sb '#D08770' -sf '#2E3440' -fn 'JetBrains Mono Nerd Font:pixelsize=14'
+# start rofi run
+bindsym $mod+d exec --no-startup-id rofi -show run
 
-# start rofi small
+# start rofi
 bindsym $mod+space exec --no-startup-id rofi -show drun
+
+# Emoji on rofi
 bindsym mod1+e exec --no-startup-id rofimoji
 
 
-# ArcoLinux Logout
-bindsym $mod+Shift+e exec --no-startup-id arcolinux-logout
-bindsym $mod+X exec --no-startup-id arcolinux-logout
+#####################################################################################################################
+#################                          how to exit, logoff, suspend, ...                        #################
+#####################################################################################################################
+ 
+ 
+# Press $mod (super) and X to exit - check toolbar for next choices
+bindsym $mod+X mode "$mode_system"
+ 
+set $mode_system SYSTEM CONTROL:   (L) Lock,   (E) Logout,   (S) Sleep,   (R) Reboot,   (O) Shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym e exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+    bindsym o exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+ 
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 
 ###############################################################################################
@@ -132,7 +147,6 @@ bindsym $mod+q kill
 ###############################################################################################
 ######                          Moving around in i3                                      ######
 ###############################################################################################
-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -227,7 +241,7 @@ font pango:JetBrains Mono Nerd Font 11
 
 # USER APPLICATIONS TO START AT BOOT
 
-exec_always --no-startup-id autotiling
+exec_always --no-startup-id autotiling &
 
 #Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -244,7 +258,7 @@ exec --no-startup-id volumeicon &
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #feh sets wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/199.jpg &
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/NORD.png &
 
 #Polybar
 #exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -254,8 +268,9 @@ exec --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/199.jpg &
 ###############################################################################################
 
 exec_always --no-startup-id nextcloud --background &
-exec_always xset r rate 300 100
-exec --no-startup-id xdman -m
+exec --no-startup-id rundesktop .config/autostart/xdman.desktop &
+exec_always kdeconnect-cli --refresh &
+exec --no-startup-id clipmenud &
 
 ###############################################################################################
 ######                          applications keyboard shortcuts                          ######
@@ -288,6 +303,9 @@ bindsym $mod+e exec --no-startup-id thunar;focus
 ###############################################################################################
 
 bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Print exec flameshot screen -p ~/Pictures
+bindsym Ctrl+Print exec flameshot screen -c
+bindsym $mod+c exec clipmenu
 
 ###############################################################################################
 #####                          floating or tiled                                        #######
@@ -362,8 +380,8 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 #################                          xbacklight                                               #################
 #####################################################################################################################
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 15 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 15 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2 # decrease screen brightness
 
 
 #####################################################################################################################
@@ -450,10 +468,7 @@ mode "$mode_gaps_outer" {
 #################                          picom of i3wm                                          #################
 #####################################################################################################################
 
-#if you want transparency on non-focused windows, ...
-exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
-
-bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+exec_always --no-startup-id picom
 
 #####################################################################################################################
 #################                          bar appearance                                           #################
@@ -467,7 +482,8 @@ bar {
     position top
 
     #system icons
-    tray_output $firstMonitor
+    tray_output primary
+    tray_padding 2
 
     status_command exec ~/.config/i3/bar.sh
 
@@ -481,7 +497,7 @@ bar {
         focused_workspace     #4C566A #4C566A #D8DEE9
         active_workspace      #4C566A #2E3440 #d8dee9
         inactive_workspace    #3B4252 #2E3440 #4C566A
-        urgent_workspace      #4C566A #BF616A #E5E9F0
+        urgent_workspace      #4C566A #88C0D0 #3B4252
         }
 
     }

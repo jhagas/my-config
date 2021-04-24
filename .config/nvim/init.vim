@@ -58,7 +58,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
       \})
 
 " settings for sumatraPDF
-let g:vimtex_view_general_viewer = '/usr/bin/zathura'
+let g:vimtex_view_general_viewer = '/usr/bin/evince'
 let g:vimtex_view_general_options
     \ = '--synctex-forward'
 

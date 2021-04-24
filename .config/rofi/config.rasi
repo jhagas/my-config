@@ -1,0 +1,10 @@
+configuration {
+	modi: "window,run,drun";
+	font: "SF Pro Display 10.5";
+	show-icons: true;
+	drun-display-format: "{icon} {name}";
+	theme: "nord";
+	display-window: "  ";
+	display-run: " ";
+	display-drun: "  ";
+}
