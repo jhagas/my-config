@@ -23,7 +23,7 @@ Everything should be in place as in this git repo.
 Make sure `$HOME/.local/bin/` is on `$PATH`
 
 
-- ***Chromium Startpage Install***
+### Chromium Startpage Install
 1. Open Extensions menu on Chromium
 2. Turn on developer mode
 3. Click "Load Unpacked"
@@ -31,7 +31,7 @@ Make sure `$HOME/.local/bin/` is on `$PATH`
 usually located in
 ```~/my-config/startpage/```
 
-- ***Spotify Theme Install***
+### Spotify Theme Install
 Make sure you already install Spicetify and have opened it before
 ```bash
 cp -r Dribbliish ~/.config/spicetify/Themes/
@@ -46,5 +46,3 @@ spicetify config current_theme Dribbblish color_scheme nord-dark
 spicetify config inject_css 1 replace_colors 1 overwrite_assets 1
 spicetify apply
 ```
-
-# Enjoy!!
