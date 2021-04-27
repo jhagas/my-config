@@ -4,17 +4,19 @@
 kdeconnect-cli --refresh
 
 # Check Dependencies
-[ ! $(which readlink) ] && echo -e "Please install readlink!" && exit 1
+[ ! $(which kdeconnect-cli) ] && echo -e "Please install KDE Connect!" && exit 1
 [ ! $(which fzf) ] && echo -e "Please install fzf!" && exit 1
 
 
 # Defining Variables
 filename=$*
 files=$(readlink -f "$*")
+kde=$(kdeconnect-cli -a) >/dev/null 2>&1
 
 send() {
-    [ -z "$(kdeconnect-cli -a | sed '/found/d')" ] && exit
-    list=$(kdeconnect-cli -a | sed '/found/d' | fzf | awk '{print $3}')
+    [ -z "$kde" ] && exit
+    list=$(echo $kde | fzf | awk '{print $3}')
+    [ -z "$list" ] && echo "Exiting.." && exit
     kdeconnect-cli -d $list --share="file://$files"
 }
 
