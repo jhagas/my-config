@@ -1,0 +1,103 @@
+#!/bin/bash
+
+# Ascii color code variables
+red="\e[0;91m"
+green="\e[0;92m"
+bold="\e[1m"
+reset="\e[0m"
+
+
+# Dependency Check
+[ ! $(which adb) ] && echo "Please install adb!" && exit 1
+[ ! $(which scrcpy) ] && echo "Please install scrcpy!" && exit 1
+[ ! $(which whiptail) ] && echo "Please install whiptail!" && exit 1
+
+
+# Argument Parsing
+secure="FOR SECURITY REASON, DON'T USE THIS SCRIPT ON PUBLIC WIFI unless you know what you're doing!!"
+fail="FAILED TO CONNECT!\nYour laptop and your phone are not in the same discoverable network"
+usbfail="FAILED TO CONNECT! Plug in your phone"
+scrcpyfail="FAIL! You don't unplug your phone"
+
+help() {
+     echo -e "${bold}SCRCPY WIRELESS CONNECTION SCRIPT${reset}"
+     echo -e "Semi-automated, make your work easier\n"
+     echo -e "${bold}USAGE:\t\t\t${green}${bold}wireless-scrcpy <OPTIONS>${reset}"
+     echo -e "\n${bold}OPTIONS:${reset}"
+     echo -e "{no option}\t\tConnect and open scrcpy"
+     echo -e "-q or --quiet\t\tConnect ADB TCPIP and open SCRCPY later"
+     echo -e "-h or --help\t\tTo display this help"
+}
+
+ip() {
+     adb shell ip route | awk '{print $9}' | sed -n '2p' | xargs -I{} adb connect {}:5555
+}
+
+ufail() {
+     echo -e "${red}${bold}${usbfail}${reset}" && exit
+}
+
+wifail() {
+     echo -e "${red}${bold}${fail}${reset}" && exit
+}
+
+port() {
+     adb tcpip 5555 >/dev/null 2>&1
+}
+
+
+# Only Connect (quiet) Mode
+case $1 in
+     -q|--quiet)
+          quiet=true
+          ;;
+     -h|--help)
+          help && exit
+          ;;
+     -*)
+          echo -e "${red}${bold}WRONG OPTION FLAG!${reset}"
+          echo -e "${green}${bold}wireless-scrcpy <OPTIONS>${reset}"
+          echo -e "${bold}\nOPTIONS:${reset}"
+          echo -e "{no option}\t\tJust connect right away"
+          echo -e "-h or --help\t\tTo display help"
+          echo -e "-q or --quiet\t\tConnect ADB TCPIP and open SCRCPY later"
+          exit
+          ;;
+     *)
+          quiet=false
+          ;;
+esac
+
+
+# Security Confirmation
+whiptail --yesno "${secure}" 10 50
+[ $? = 1 ] && exit
+
+
+# Kill ADB if it's already running
+killall adb >/dev/null 2>&1
+
+
+# Main Part, take the android local IP address and connect it to TCP/IP ADB
+echo "Starting ADB Connection.."
+
+port || ufail
+sleep 2
+
+[[ ! $(ip) ]] && wifail
+echo -e "${green}${bold}ADB Connection Established!${reset}"
+
+
+# Message to unplug your android phone
+sleep 2
+
+
+# Open scrcpy
+if [ $quiet = "false" ]
+     then
+          whiptail --msgbox "Unplug your Android Phone, Press ENTER to continue!" 10 40
+          echo -e "${bold}Opening scrcpy..${reset}"
+          $(scrcpy -b2M -m800 </dev/null &>/dev/null & ) || echo -e "${red}${bold}${scrcpyfail}${reset}"
+     else
+          echo -e "${bold}Unplug your phone, and you can open scrcpy anytime..${reset}"
+fi

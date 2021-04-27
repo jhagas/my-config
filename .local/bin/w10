@@ -1,0 +1,4 @@
+#!/bin/sh
+
+VBoxManage startvm "10"
+

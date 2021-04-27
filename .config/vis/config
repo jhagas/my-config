@@ -1,0 +1,17 @@
+# COLOR SCHEME
+# located in ~/.config/vis/colors/
+colors.scheme=nord
+
+
+# Visualizer look and feel
+visualizer.spectrum.smoothing.mode=monstercat
+visualizer.spectrum.falloff.mode=none
+visualizer.spectrum.bar.width=1
+
+audio.stereo.enabled=true
+
+
+# Sampling and filter
+audio.sampling.frequency=44100
+audio.low.cutoff.frequency=30
+audio.high.cutoff.frequency=15500

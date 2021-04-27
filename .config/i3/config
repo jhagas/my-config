@@ -46,8 +46,6 @@ set $right l
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
 #exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
-exec --no-startup-id xrandr --output VGA1 --right-of eDP1 --auto
-
 
 # my current setup
 
@@ -113,13 +111,13 @@ bindsym mod1+e exec --no-startup-id rofimoji
 # Press $mod (super) and X to exit - check toolbar for next choices
 bindsym $mod+X mode "$mode_system"
  
-set $mode_system SYSTEM CONTROL:   (L) Lock,   (E) Logout,   (S) Sleep,   (R) Reboot,   (O) Shutdown
+set $mode_system ⌨ : (L)ock,  Log(o)ut,  (S)leep,  (R)eboot,  Shut(d)own
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
-    bindsym e exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym o exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
     bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
     bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
-    bindsym o exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+    bindsym d exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
  
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -130,7 +128,7 @@ mode "$mode_system" {
 ###############################################################################################
 ######                          reload changed configuration                             ######
 ###############################################################################################
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart i3
 bindsym $mod+Shift+r restart
 
 # reload the configuration file
@@ -172,7 +170,8 @@ bindsym $mod+Shift+$right move right
 ###############################################################################################
 
 # next/previous workspace
-bindsym $mod+Tab workspace next
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -193,7 +192,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout tabbed
 
 # change focus between tiling / floating windows
-bindsym Control+Tab focus mode_toggle
+bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -205,9 +204,9 @@ bindsym $mod+a focus parent
 
 # resize window (you can also use the mouse for that)
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "↗ Window Resize"
 
-mode "resize" {
+mode "↗ Window Resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -258,7 +257,7 @@ exec --no-startup-id volumeicon &
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #feh sets wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/NORD.png &
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/152.jpg &
 
 #Polybar
 #exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -426,7 +425,7 @@ gaps outer 7
 #################                          i3 gaps change                                           #################
 #####################################################################################################################
 
-set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps Gaps: (O)uter, (I)nner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
@@ -497,7 +496,7 @@ bar {
         focused_workspace     #4C566A #4C566A #D8DEE9
         active_workspace      #4C566A #2E3440 #d8dee9
         inactive_workspace    #3B4252 #2E3440 #4C566A
-        urgent_workspace      #4C566A #88C0D0 #3B4252
+        urgent_workspace      #B48EAD #EBCB8B #2e3440
         }
 
     }

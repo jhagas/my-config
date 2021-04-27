@@ -19,12 +19,8 @@ git clone https://github.com/jhagas/my-config
 cd my-config
 ```
 
-- ***Welcome Message Install***
-```bash
-sudo cp hai /usr/bin/hai2
-```
-
 Everything should be in place as in this git repo.
+Make sure `$HOME/.local/bin/` is on `$PATH`
 
 
 - ***Chromium Startpage Install***

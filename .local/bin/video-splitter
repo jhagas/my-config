@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Detect if ffmpeg is installed
+[ ! $(which ffmpeg) ] && echo -e "Please install ffmpeg!" && exit 1
+
+# Taking first argument as input file
+# And second argument as split duration (in second)
+INPUT="$1"
+DURATION="$2"
+
+# Making new folder where splitted video
+# will be rendered by ffmpeg.
+# Using build-in shell string manipulation
+# to delete everything after the last "."
+# In this case, it deletes the file extension
+# And make it as the name of new folder
+mkdir ${INPUT%.*}
+
+# If second argument turns out to be null,
+# Ask user to manually input the duration
+# And replace $DURATION with user input.
+# Known Value for certain apps
+# WhatsApp Status 30, IG Stories 15, FB Stories 26
+[ -z "$DURATION" ] && read -p "Tentukan Durasi Split (detik): " DURATION
+
+# Just throw everything into this
+# Long and boring command
+# For further information, visit this article
+# https://medium.com/@taylorjdawson/splitting-a-video-with-ffmpeg-the-great-mystical-magical-video-tool-%EF%B8%8F-1b31385221bd
+ffmpeg -i $INPUT -c:v libx264 -crf 22 -map 0 -segment_time $DURATION -sc_threshold 0 -force_key_frames "expr:gte(t,n_forced*$DURATION)" -f segment ${INPUT%.*}/splitted%03d.mp4
+

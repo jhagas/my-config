@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Vis
+Icon=terminal
+Exec=kitty -e vis
+Terminal=false

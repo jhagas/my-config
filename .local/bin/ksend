@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Start KDE Connect Daemon and refresh it
+kdeconnect-cli --refresh
+
+# Check Dependencies
+[ ! $(which readlink) ] && echo -e "Please install readlink!" && exit 1
+[ ! $(which fzf) ] && echo -e "Please install fzf!" && exit 1
+
+
+# Defining Variables
+filename=$*
+files=$(readlink -f "$*")
+
+send() {
+    [ -z "$(kdeconnect-cli -a | sed '/found/d')" ] && exit
+    list=$(kdeconnect-cli -a | sed '/found/d' | fzf | awk '{print $3}')
+    kdeconnect-cli -d $list --share="file://$files"
+}
+
+# Detect if no argument
+[ -z "$1" ] && echo -e "No File To Send\nSee --help" && exit
+
+send
+echo "Sending your file.."
+
