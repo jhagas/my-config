@@ -1,24 +1,24 @@
-#!/bin/bash
+#!/bin/sh
 
-bold="\e[1m"
-reset="\e[0m"
+#bold="\e[1m"
+#reset="\e[0m"
 
-echo -e "${bold}Hey $1..${reset}"
+echo Hey "$1"..
 JAM=$(date "+%k")
 
-if (( JAM < 6 ))
+if [ "$JAM" -lt 6 ]
 		then
 			echo "It's too late, take some sleep!"
-	elif (( JAM < 9 ))
+	elif [ "$JAM" -lt 9 ]
 		then
 			echo "You're up early!"
-	elif (( JAM < 12 ))
+	elif [ "$JAM" -lt 12 ]
 		then
 			echo "Have a good day ahead!"
-	elif (( JAM < 17 ))
+	elif [ "$JAM" -lt 17 ]
 		then
 			echo "Good afternoon!"
-	elif (( JAM < 20 ))
+	elif [ "$JAM" -lt 20 ]
 		then
 			echo "Good evening!"
     else
