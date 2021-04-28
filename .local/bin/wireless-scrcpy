@@ -8,9 +8,9 @@ reset="\e[0m"
 
 
 # Dependency Check
-[ ! $(which adb) ] && echo "Please install adb!" && exit 1
-[ ! $(which scrcpy) ] && echo "Please install scrcpy!" && exit 1
-[ ! $(which whiptail) ] && echo "Please install whiptail!" && exit 1
+[ ! "$(which adb)" ] && echo "Please install adb!" && exit 1
+[ ! "$(which scrcpy)" ] && echo "Please install scrcpy!" && exit 1
+[ ! "$(which whiptail)" ] && echo "Please install whiptail!" && exit 1
 
 
 # Argument Parsing
@@ -97,7 +97,7 @@ if [ $quiet = "false" ]
      then
           whiptail --msgbox "Unplug your Android Phone, Press ENTER to continue!" 10 40
           echo -e "${bold}Opening scrcpy..${reset}"
-          $(scrcpy -b2M -m800 </dev/null &>/dev/null & ) || echo -e "${red}${bold}${scrcpyfail}${reset}"
+          "$(scrcpy -b2M -m800 </dev/null &>/dev/null & )" || echo -e "${red}${bold}${scrcpyfail}${reset}"
      else
           echo -e "${bold}Unplug your phone, and you can open scrcpy anytime..${reset}"
 fi

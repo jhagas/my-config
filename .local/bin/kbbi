@@ -17,7 +17,7 @@ help_text () {
 # Checks if dependencies are installed.
 check_deps() {
     while [ -n "$1" ]; do
-        if [ ! "$(command -v $1)" ]; then
+        if [ ! "$(command -v "$1")" ]; then
             error_msg "\"$1\" not found!"
             exit 2
         fi
@@ -64,16 +64,16 @@ if [ -z "$1" ]; then
 fi
     
 # Else, all arguments are saved in $query
-query=$(echo $* | sed 's/ /%20/g')
+query=$(echo "$*" | sed 's/ /%20/g')
 
 
 # Download HTML Information and dump it in terminal
 url="https://kbbi.kemdikbud.go.id/entri/$query"
-html=$(curl -Gs $url | head -90 | tail +90 | sed 's/&#x21E2; Tesaurus//g;s/Etimologi://g;s/\[//;s/\Informasi etimologi hanya tersedia bagi pengguna terdaftar//g;s/\]//')
+html=$(curl -Gs "$url" | head -90 | tail +90 | sed 's/&#x21E2; Tesaurus//g;s/Etimologi://g;s/\[//;s/\Informasi etimologi hanya tersedia bagi pengguna terdaftar//g;s/\]//')
 
 # Exit if Daily Search Limit is exceeded
 [ -z "$html" ] && echo "${R}Anda telah melebihi batas pencarian harian!!${N}" && exit
 
-echo "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+printf "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
 echo "$html" | w3m -dump -cols 60 -T text/html | awk -v RS='\n\n' 1
 

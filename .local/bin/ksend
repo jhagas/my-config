@@ -4,24 +4,23 @@
 kdeconnect-cli --refresh
 
 # Check Dependencies
-[ ! $(which kdeconnect-cli) ] && echo -e "Please install KDE Connect!" && exit 1
-[ ! $(which fzf) ] && echo -e "Please install fzf!" && exit 1
+[ ! "$(which kdeconnect-cli)" ] && echo "Please install KDE Connect!" && exit 1
+[ ! "$(which fzf)" ] && echo "Please install fzf!" && exit 1
 
 
 # Defining Variables
-filename=$*
 files=$(readlink -f "$*")
 kde=$(kdeconnect-cli -a) >/dev/null 2>&1
 
 send() {
     [ -z "$kde" ] && exit
-    list=$(echo $kde | fzf | awk '{print $3}')
+    list=$(echo "$kde" | fzf | awk '{print $3}')
     [ -z "$list" ] && echo "Exiting.." && exit
-    kdeconnect-cli -d $list --share="file://$files"
+    kdeconnect-cli -d "$list" --share="file://$files"
 }
 
 # Detect if no argument
-[ -z "$1" ] && echo -e "No File To Send\nSee --help" && exit
+[ -z "$1" ] && printf "\nNo File To Send\nSee --help\n" && exit
 
 send
 echo "Sending your file.."
