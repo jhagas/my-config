@@ -13,9 +13,9 @@ files=$(readlink -f "$*")
 kde=$(kdeconnect-cli -a) >/dev/null 2>&1
 
 send() {
-    [ -z "$kde" ] && exit
+    [ -z "$kde" ] && echo "No Device Connected!" && exit
     list=$(echo "$kde" | fzf | awk '{print $3}')
-    [ -z "$list" ] && echo "Exiting.." && exit
+    [ -z "$list" ] && echo "No Device Selected! Exiting.." && exit
     kdeconnect-cli -d "$list" --share="file://$files"
 }
 

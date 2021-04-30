@@ -3,24 +3,20 @@
 b="\033[1m"
 rt="\033[m"
 
-echo "${b}Hey $1..${rt}"
 JAM=$(date "+%k")
 
-if [ "$JAM" -lt 6 ]
-		then
-			echo "It's too late, take some sleep!"
-	elif [ "$JAM" -lt 9 ]
-		then
-			echo "You're up early!"
-	elif [ "$JAM" -lt 12 ]
-		then
-			echo "Have a good day ahead!"
-	elif [ "$JAM" -lt 17 ]
-		then
-			echo "Good afternoon!"
-	elif [ "$JAM" -lt 20 ]
-		then
-			echo "Good evening!"
-    else
-			echo "It's time to wrap up for the day!"
+echo "${b}Hey $1..${rt}"
+
+if [ "$JAM" -lt 6 ]; then
+	echo "😪 It's too late, take some sleep!"
+elif [ "$JAM" -lt 9 ]; then
+	echo "🌄 You're up early!"
+elif [ "$JAM" -lt 12 ]; then
+	echo "📚 Have a good day ahead!"
+elif [ "$JAM" -lt 17 ]; then
+	echo "⛅ Good afternoon!"
+elif [ "$JAM" -lt 20 ]; then
+	echo "🌆 Good evening!"
+else
+	echo "😴 It's time to wrap up for the day!"
 fi

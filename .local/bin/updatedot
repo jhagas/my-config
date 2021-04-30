@@ -36,7 +36,7 @@ mpv=~/.config/mpv/
 neofetch=~/.config/neofetch/
 nvim=~/.config/nvim/
 rofi=~/.config/rofi/
-spicetify=~/.config/spicetify/
+spicetify=~/.config/spicetify/Themes/Dribbblish
 vis=~/.config/vis/
 ytfzf=~/.config/ytfzf/
 
@@ -44,7 +44,6 @@ blsrc=~/.config/betterlockscreenrc
 picom=~/.config/picom.conf
 rofimoji=~/.config/rofimoji.rc
 starship=~/.config/starship.toml
-
 
 cp -f -r $alacritty ~/my-config/.config/
 cp -f -r $dunst ~/my-config/.config/
@@ -55,7 +54,7 @@ cp -f -r $mpv ~/my-config/.config/
 cp -f -r $neofetch ~/my-config/.config/
 cp -f -r $nvim ~/my-config/.config/
 cp -f -r $rofi ~/my-config/.config/
-cp -f -r $spicetify ~/my-config/.config/
+cp -f -r $spicetify ~/my-config/.config/spicetify/Themes/Dribbblish/
 cp -f -r $vis ~/my-config/.config/
 cp -f -r $ytfzf ~/my-config/.config/
 
