@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Dijo
+Icon=terminal
+Exec=kitty -e dijo
+Terminal=false

@@ -257,7 +257,7 @@ exec --no-startup-id volumeicon &
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #feh sets wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/152.jpg &
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/421.jpg &
 
 #Polybar
 #exec_always --no-startup-id ~/.config/polybar/launch.sh &

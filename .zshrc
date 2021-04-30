@@ -57,8 +57,7 @@ alias fgrep='fgrep --color=auto'
 alias df='df -h'
 
 #pacman unlock
-alias unlock="sudo rm /var/lib/pacman/db.lck"
-alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
+alias pacman-unlock="sudo rm /var/lib/pacman/db.lck"
 
 #free
 alias free="free -mt"
@@ -70,21 +69,15 @@ alias wget="wget -c"
 alias update='yay -Syyu'
 
 #add new fonts
-alias update-fc='sudo fc-cache -fv'
+alias update-font='sudo fc-cache -fv'
 
-#get fastest mirrors in your neighborhood
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+#matlab
+alias matlab="matlab -batch"
 
 #youtube-dl
-alias yt-aac="youtube-dl --extract-audio --audio-format aac "
-alias yt-best="youtube-dl --extract-audio --audio-format best "
-alias yt-flac="youtube-dl --extract-audio --audio-format flac "
-alias yt-m4a="youtube-dl --extract-audio --audio-format m4a "
 alias yt-mp3="youtube-dl --extract-audio --audio-format mp3 "
-alias yt-opus="youtube-dl --extract-audio --audio-format opus "
-alias yt-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yt-wav="youtube-dl --extract-audio --audio-format wav "
-alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+alias yt-best="youtube-dl -f bestvideo+bestaudio "
 
 #Recent Installed Packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
