@@ -232,10 +232,8 @@
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+j
+    history = ctrl+mod1+j
 
-    # Context menu.
-    context = ctrl+shift+period
 
 [urgency_low]
     msg_urgency = low

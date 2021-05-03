@@ -1,9 +1,6 @@
 "keyboard-bind /usr/share/x11/xkb/symbols/pc
 set termguicolors
 
-"set sh as default shell
-set shell=sh
-
 " hey, i want to disable arrow keys
 inoremap  <left>   <nop>
 inoremap  <right>  <nop>
@@ -119,6 +116,7 @@ tnoremap jk <C-\><C-n>
 " LaTeX Shortcut
 imap <C-d> \displaystyle 
 imap <C-g> \includegraphics[width=200px]{
+imap <C-s> style="max-width:100%;"
 map <space><space> :call search("[{[$<(]")<CR>l
 nnoremap <leader>p :VimtexCompile<CR>
 
@@ -163,9 +161,12 @@ colorscheme nord
 
 
 "MARKDOWN PREVIEW
+let g:mkdp_browser = 'surf'
+
 let g:mkdp_page_title = '${name}'
 let g:mkdp_filetypes = ['markdown']
 let g:mkdp_echo_preview_url = 1
 nmap <C-m> <Plug>MarkdownPreview
+
 
 

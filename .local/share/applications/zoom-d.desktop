@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Dockered Zoom
+Comment=Zoom but in Docker Container
+Exec=kitty -e zoom-us-wrapper
+Icon=Zoom
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Network;Application;Docker
+StartupWMClass=zoom
+

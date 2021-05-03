@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MATLAB-CLI
+Icon=matlab
+Exec=kitty -e matlab -nodesktop
+Terminal=false

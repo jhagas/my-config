@@ -46,7 +46,6 @@ alias l.="ls -A | egrep '^\.'"
 
 #fix obvious typo's
 alias cd..='cd ..'
-alias update='sudo pacman -Syyu'
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
@@ -72,7 +71,7 @@ alias update='yay -Syyu'
 alias update-font='sudo fc-cache -fv'
 
 #matlab
-alias matlab="matlab -batch"
+alias matlab="matlab -nodesktop"
 
 #youtube-dl
 alias yt-mp3="youtube-dl --extract-audio --audio-format mp3 "
@@ -170,5 +169,6 @@ setopt prompt{percent,subst}
 PROMPT='$("/usr/bin/starship" prompt --keymap=${KEYMAP} --status=${STARSHIP_CMD_STATUS})'
 
 # Path to your oh-my-zsh installation.
-source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
