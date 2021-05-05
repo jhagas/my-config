@@ -17,6 +17,7 @@ bind-key n next-unread
 bind-key N prev-unread
 bind-key U show-urls
 bind-key x pb-delete
+bind-key o open-in-browser-and-mark-read
 
 color listnormal cyan default
 color listfocus black yellow standout bold
@@ -25,7 +26,6 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article cyan default
 
-browser "devour links2 -g"
-macro v set browser "devour mpv" ; open-in-browser ; set browser "devour links2 -g"
-macro w set browser "devour sensible-browser" ; open-in-browser ; set browser "devour links2 -g"
+browser "devour surf -a a -g"
+macro v set browser "devour mpv" ; open-in-browser-and-mark-read ; set browser "devour surf -a a -g"
 
