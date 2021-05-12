@@ -256,17 +256,13 @@ exec --no-startup-id volumeicon &
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #feh sets wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/421.jpg &
-
-#Polybar
-#exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper/24.jpg &
 
 ###############################################################################################
 #####                                 system applications                               #######
 ###############################################################################################
 
 exec_always --no-startup-id nextcloud --background &
-#exec --no-startup-id rundesktop .config/autostart/xdman.desktop &
 exec_always kdeconnect-cli --refresh &
 exec --no-startup-id clipmenud &
 
@@ -458,7 +454,7 @@ mode "$mode_gaps_outer" {
 #################                          picom of i3wm                                          #################
 #####################################################################################################################
 
-exec_always --no-startup-id picom
+exec_always --no-startup-id picom --experimental-backend
 
 #####################################################################################################################
 #################                          bar appearance                                           #################
@@ -471,7 +467,6 @@ bar {
 
     position top
 
-    #system icons
     tray_output primary
     tray_padding 2
 
@@ -488,9 +483,9 @@ bar {
         active_workspace      #4C566A #2E3440 #d8dee9
         inactive_workspace    #3B4252 #2E3440 #4C566A
         urgent_workspace      #B48EAD #EBCB8B #2e3440
-        }
-
     }
+
+}
 
     # Window color settings
     # class                 border  backgr. text    indicator

@@ -9,10 +9,10 @@ configuration {
 }
 
 * {
-  polar-1: #2E3440;
-  polar-2: #3B4252;
-  polar-3: #434C5E;
-  polar-4: #4C566A;
+  polar-1: #2E344070;
+  polar-2: #3B425280;
+  polar-3: #434C5E80;
+  polar-4: #4C566A70;
 
   snow-1: #D8DEE9;
   snow-2: #E5E9F0;

@@ -2,6 +2,7 @@
 Version=1.0
 Type=Application
 Name=Dijo
+Comment=Activity Tracker
 Icon=terminal
 Exec=kitty -e dijo
 Terminal=false
