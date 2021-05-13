@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Vis
-Comment=Music Visualizer
-Icon=terminal
-Exec=kitty -e vis
-Category=visualizer;terminal;tui;music
-Terminal=false

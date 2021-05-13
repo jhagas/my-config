@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ncspot (Spotify)
+Icon=spotify
+Exec=kitty -e ncspot
+Terminal=false
