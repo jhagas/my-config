@@ -33,10 +33,6 @@ _comp_options+=(globdots) # Show hidden
 
 alias vim=nvim
 
-# OpenVPN Management
-alias startvpn='openvpn3 session-start --config client.ovpn'
-alias stopvpn='openvpn3 session-manage --disconnect --config client.ovpn'
-
 #list
 alias ls='ls --color=auto'
 alias la='ls -a'
@@ -65,13 +61,16 @@ alias free="free -mt"
 alias wget="wget -c"
 
 # Aliases for software managment
-alias update='yay -Syyu'
+alias update='paru -Syu'
 
 #add new fonts
 alias update-font='sudo fc-cache -fv'
 
 #matlab
 alias matlab="matlab -nodesktop"
+
+#ssh
+alias addssh='ssh-add ~/.my.ssh/jhagas'
 
 #youtube-dl
 alias yt-mp3="youtube-dl --extract-audio --audio-format mp3 "
@@ -124,6 +123,8 @@ bindkey -v '^?' backward-delete-char
 
 # Opening Messages
 hai Jhagas
+
+eval "$(ssh-agent -s)" >> /dev/null
 
 # Starship Prompt
 starship_precmd() {

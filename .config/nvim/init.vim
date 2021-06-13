@@ -1,4 +1,4 @@
-"keyboard-bind /usr/share/x11/xkb/symbols/pc
+"keyboard-bind /usr/share/X11/xkb/symbols/pc
 set termguicolors
 
 " hey, i want to disable arrow keys
@@ -16,6 +16,7 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 vnoremap <silent> j gj
 vnoremap <silent> k gk
+nnoremap <silent> Q gqq
 
 " Snippet Movement
 inoremap <A-j> <down>
@@ -36,8 +37,10 @@ Plug 'neomake/neomake'
 Plug 'honza/vim-snippets'
 Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'ron89/thesaurus_query.vim'
+Plug 'dpelle/vim-LanguageTool'
 
 " End vim-plug call
 call plug#end()
@@ -51,11 +54,17 @@ call deoplete#custom#var('omni', 'input_patterns', {
       \ 'tex': g:vimtex#re#deoplete
       \})
 
-" settings for sumatraPDF
+" settings for evince
 let g:vimtex_view_general_viewer = '/usr/bin/evince'
 let g:vimtex_view_general_options
     \ = '--synctex-forward'
 
+" vim thesaurus
+vnoremap <leader>cs y:ThesaurusQueryReplace <C-r>"<CR>
+
+" vim language tools
+nnoremap <C-u> :LanguageToolCheck<CR>
+let g:languagetool_cmd='/usr/bin/languagetool'
 
 " Neomake Linting
 call neomake#configure#automake('nrwi', 500)
@@ -71,10 +80,12 @@ let g:lightline = {
 " Some basic tweaks
 syntax on
 set encoding=utf-8
+set showbreak==>
 set hidden
 set noerrorbells
 set nu rnu
 set tabstop=4 softtabstop=4
+set lazyredraw
 set shiftwidth=4
 set noshowmode
 set expandtab
@@ -93,6 +104,12 @@ set wildmode=longest,list,full
 set wrap lbr
 set breakindent
 let mapleader = " "
+set textwidth=75
+set spell! spelllang=en_us,id
+set confirm
+set ruler
+set autochdir
+set autowriteall
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -146,7 +163,6 @@ nnoremap <silent> <C-Down> :resize -1<CR>
 
 " Toogle Some Tools (File manager, Spell Check <id,en>)
 nnoremap <leader>f :NERDTreeToggle<CR>
-map <leader>s :setlocal spell! spelllang=en_us,id<CR>
 
 " Copy Paste from System Clipboard
 vnoremap <C-c> "+y
@@ -161,8 +177,8 @@ colorscheme nord
 
 
 "MARKDOWN PREVIEW
-let g:mkdp_browser = 'surf'
-
+let g:mkdp_browser = 'brave'
+let g:mkdp_auto_close = 0
 let g:mkdp_page_title = '${name}'
 let g:mkdp_filetypes = ['markdown']
 let g:mkdp_echo_preview_url = 1
